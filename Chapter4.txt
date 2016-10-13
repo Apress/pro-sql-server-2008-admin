@@ -1,0 +1,94 @@
+--- Command Line Install ********************************************************
+setup.exe /QS /ACTION=install /FEATURES=SQL /INSTANCENAME=MSSQLCMDLN/SQLSVCACCOUNT="NT AUTHORITY\Network Service" /SQLSYSADMINACCOUNTS="NT AUTHORITY\Network Service" /SQLSVCSTARTUPTYPE="automatic" /AGTSVCACCOUNT="NT AUTHORITY\Network Service" /AGTSVCSTARTUPTYPE="automatic" /SQLCOLLATION="SQL_Latin1_General_CP1_CI_AI" /SECURITYMODE=SQL /SAPWD="P@ssw0rd!"/SQLUSERDBDIR="c:\sqldata" /SQLUSERDBLOGDIR="c:\sqlLogs" SQLBACKUPDIR="c:\backups" /SQLTEMPDBDIR="c:\sqldata" /SQLTEMPDBLOGDIR="c:\sqldata"/FILESTREAMLEVEL=1 /ERRORREPORTING=0 /SQMREPORTING=0
+
+
+
+--Listing 4-1*********************************************************************
+
+;SQLSERVER2008 Configuration File
+[SQLSERVER2008]
+; Specifies the instance ID for the SQL Server features you have specified. SQL Server directory structure, registry structure, and service names will reflect the instance ID of the SQL Server instance.
+INSTANCEID="MSSQLCMDLINE"
+; Specifies a setup workflow, like INSTALL, UNINSTALL, or UPGRADE.This is a required parameter.
+ACTION="Install"
+; Specifies features to install, uninstall, or upgrade. The list of top-level features include SQL, AS, RS, IS, and Tools. The SQL feature will install the database engine, replication, and Full-Text. The Tools feature will install Management Tools, Books Online, Business Intelligence Development Studio, and other shared components.
+FEATURES=SQLENGINE,REPLICATION,FULLTEXT
+; Displays the command-line parameters usage
+HELP="False"
+; Specifies that the detailed setup log should be piped to the console.
+INDICATEPROGRESS="False"
+; Setup will not display any user interface.
+QUIET="False"
+; Setup will display progress only without any user interaction.
+QUIETSIMPLE="True"
+; Specifies that setup should install into WOW64. This command-line argument is not supported on an IA64 or a 32-bit system.
+X86="False"
+; Specifies the path to the installation media folder where setup.exe is located.
+MEDIASOURCE="D:\English\SQL2008\Enterprise\"
+; Specifies if errors can be reported to Microsoft to improve future SQL Server
+releases. Specify 1 or True to enable and 0 or False to disable this feature.
+ERRORREPORTING="False"
+; Specifies the root installation directory for native shared components.
+INSTALLSHAREDDIR="C:\Program Files\Microsoft SQL Server"
+; Specifies the installation directory.
+INSTANCEDIR="C:\Program Files\Microsoft SQL Server"
+; Specifies that SQL Server feature usage data can be collected and sent to
+Microsoft. Specify 1 or True to enable and 0 or False to disable this feature.
+SQMREPORTING="False"
+; Specifies a default or named instance. MSSQLSERVER is the default instance
+for non-Express Editions and SQLExpress for Express Editions. This parameter is required when installing the SQL Server Database Engine (SQL),Analysis Services (AS), or Reporting Services (RS).
+INSTANCENAME="MSSQLCMDLINE"
+; Agent account name
+AGTSVCACCOUNT="NT AUTHORITY\NETWORK SERVICE"
+; Auto-start service after installation.
+AGTSVCSTARTUPTYPE="Manual"
+; Startup type for Integration services.
+ISSVCSTARTUPTYPE="Automatic"
+; Account for Integration services: Domain\User or system account.
+ISSVCACCOUNT="NT AUTHORITY\NetworkService"
+; Controls the service startup type setting after the service has been created.
+ASSVCSTARTUPTYPE="Automatic"
+; The collation to be used by Analysis Services.
+ASCOLLATION="Latin1_General_CI_AS"
+; The location for the Analysis Services data files.
+ASDATADIR="Data"
+; The location for the Analysis Services log files.
+ASLOGDIR="Log"
+; The location for the Analysis Services backup files.
+ASBACKUPDIR="Backup"
+; The location for the Analysis Services temporary files.
+ASTEMPDIR="Temp"
+; The location for the Analysis Services configuration files.
+ASCONFIGDIR="Config"
+; Specifies whether or not the MSOLAP provider is allowed to run in process.
+ASPROVIDERMSOLAP="1"
+; Startup type for the SQL Server service.
+SQLSVCSTARTUPTYPE="Automatic"
+; Level to enable FILESTREAM feature at (0, 1, 2 or 3).
+FILESTREAMLEVEL="0"
+; Set to "1" to enable RANU for SQL Server Express.
+ENABLERANU="False"
+; Specifies a Windows collation or a SQL collation to use for the database engine.
+SQLCOLLATION="SQL_Latin1_General_CP1_CI_AS"
+; Account for SQL Server service: Domain\User or system account.
+SQLSVCACCOUNT="NT AUTHORITY\Network Service"
+; Windows account(s) to provision as SQL Server system administrators.
+SQLSYSADMINACCOUNTS="NT AUTHORITY\Network Service"
+; Provision current user as a database engine system administrator for
+SQL Server 2008 Express.
+ADDCURRENTUSERASSQLADMIN="False"
+; Specify 0 to disable or 1 to enable the TCP/IP protocol.
+TCPENABLED="1"
+; Specify 0 to disable or 1 to enable the Named Pipes protocol.
+NPENABLED="0"
+; Startup type for Browser Service.
+BROWSERSVCSTARTUPTYPE="Automatic"
+; Specifies how the startup mode of the report server NT service. When
+Manual - Service startup is manual mode (default).
+Automatic - Service startup is automatic mode.
+Disabled - Service is disabled
+RSSVCSTARTUPTYPE="Automatic"
+; Specifies which mode report server is installed in.
+Default value: "FilesOnly"
+RSINSTALLMODE="FilesOnlyMode"
+
